@@ -3,12 +3,17 @@
 #include <R_ext/Rdynload.h>
 #include <R_ext/Visibility.h>
 
-/* List of functions provided by the package. */
+// List of functions provided by the package.
 static const R_CallMethodDef CallEntries[] = {
-    {"hamstr_increment", (DL_FUNC) &hamstr_increment, 1}, /* Incement function, 1 argumemnt) */
-    {NULL, NULL, 0} /* Terminates the function list. Necessary. */
+    // Incement function implemented by hamstr_increment, 1 argument.
+    {"hamstr_increment", (DL_FUNC) &hamstr_increment, 1},
+
+    // Terminates the function list. Necessary.
+    {NULL, NULL, 0} 
 };
 
+// Initializes the package and registers the routines with the Rdynload 
+// library. Name follows the pattern: R_init_<package_name> 
 void attribute_visible R_init_hamstr(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
