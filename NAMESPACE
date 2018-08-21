@@ -1,0 +1,2 @@
+useDynLib(hamstr, .registration = TRUE, .fixes = "")
+exportPattern("^[[:alpha:]]+")
